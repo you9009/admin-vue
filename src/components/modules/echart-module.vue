@@ -31,12 +31,12 @@ export default {
           left: '4%',
           right: '4%',
           bottom: '4%',
-          top: '5%',
-          containLabel: true
+          top: '5%'
         },
         xAxis: {
           type: 'category',
           data: title,
+          boundaryGap: false,
           axisTick: {
             alignWithLabel: true
           },
@@ -46,16 +46,12 @@ export default {
         },
         yAxis: {
           type: 'value',
-          splitLine: {
-            show: false
-          },
-          splitArea: {
-            show: false
-          }
+          show: false
         },
         series: [{
           data: data,
           type: 'line',
+          areaStyle: {},
           label: {
             normal: {
               show: true,
@@ -90,12 +86,7 @@ export default {
         },
         yAxis: {
           type: 'value',
-          splitLine: {
-            show: false
-          },
-          splitArea: {
-            show: false
-          }
+          show: false
         },
         series: [{
           data: data,
@@ -159,7 +150,10 @@ export default {
         xAxis: {
           type: 'category'
         },
-        yAxis: {},
+        yAxis: {
+          type: 'value',
+          show: false
+        },
         series: series
       }
       return option
@@ -243,7 +237,8 @@ export default {
           data: title
         },
         yAxis: {
-          type: 'value'
+          type: 'value',
+          show: false
         },
         series: data
       }
