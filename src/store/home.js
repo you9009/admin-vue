@@ -35,6 +35,11 @@ const state = {
           label: '日历',
           link: '/page4',
           name: 'page4'
+        },
+        {
+          label: '分页',
+          link: '/page5',
+          name: 'page5'
         }
       ]
     },

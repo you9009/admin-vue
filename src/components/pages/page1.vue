@@ -5,9 +5,13 @@
         <Button type="primary" size="small" @click="submit(row)">按钮</Button>
       </template>
     </table-tree>
-    <div class="page-box">
-      <page-box :total="100" @on-change="changePage"></page-box>
-    </div>
+
+    <Modal
+        title="内容"
+        v-model="modal.show"
+        :mask-closable="false">
+        {{modal.main}}
+    </Modal>
   </div>
 </template>
 
@@ -39,7 +43,11 @@ export default {
           slot: 'action',
           align: 'center'
         }
-      ]
+      ],
+      modal: {
+        show: false,
+        main: {}
+      }
     }
   },
   computed: {
@@ -48,22 +56,15 @@ export default {
     ])
   },
   methods: {
-    changePage (e) {
-      console.log(e)
-    },
     submit (e) {
-      console.log(e)
+      this.modal = {
+        show: true,
+        main: e
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.page {
-  font-size: 20px;
-  .page-box {
-    padding-top: 20px;
-    text-align: center;
-  }
-}
 </style>
