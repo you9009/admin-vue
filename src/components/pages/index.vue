@@ -8,6 +8,7 @@
         <li>树形表格+分页：数据来自右侧导航</li>
         <li>封装的echarts类型：百度Echarts</li>
         <li>城市联动选择器：iview/Cascader 级联选择</li>
+        <li>日历：右键可添加删除日程</li>
       </ul>
     </h2>
     <h2>2.多层嵌套导航</h2>
