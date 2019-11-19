@@ -12,14 +12,22 @@
     </ul>
     <ul class="item day-list">
       <li v-for="(item, index) in prevMonList" :key="'p'+index"></li>
-      <li :class="{'today':Today==item.time,'active':item.more}" v-for="(item, index) in MonNumList" :key="index">
+      <li :class="{'today':Today==item.time,'active':item.more}" v-for="(item, index) in MonNumList" :key="index" @contextmenu.prevent="rightClick(item)"  @mouseleave="hideAdd(item)">
         <p>{{item.time}}</p>
         <div class="main" v-if="item.more">
           <div class="title">{{item.title}}</div>
           <div class="content">{{item.content}}</div>
         </div>
+        <div class="add-more" v-if="item.add">
+          <div class="btn">添加日程</div>
+        </div>
       </li>
     </ul>
+
+    <div class="add-box">
+      <Input v-model="addModal.title" maxlength="10" show-word-limit placeholder="请输入标题..." />
+      <Input v-model="addModal.content" maxlength="100" show-word-limit type="textarea" placeholder="请输入内容..." />
+    </div>
   </div>
 </template>
 
@@ -32,7 +40,12 @@ export default {
       year: null,
       month: null,
       day: null,
-      moment: {}
+      moment: {},
+      // 添加日程
+      addModal: {
+        title: '',
+        content: ''
+      }
     }
   },
   props: {
@@ -50,7 +63,10 @@ export default {
 
       let dayList = []
       for (let i = 0; i < list; i++) {
-        dayList.push({ time: i + 1 })
+        dayList.push({
+          add: false,
+          time: i + 1
+        })
         if (data) {
           for (let j = 0; j < data.length; j++) {
             const element = data[j]
@@ -171,6 +187,16 @@ export default {
       this.year = this.moment.year
       this.month = this.moment.month
       this.moment = {}
+    },
+    // 右键事件
+    rightClick (item) {
+      item.add = true
+      this.$forceUpdate()
+    },
+    // 隐藏事件
+    hideAdd (item) {
+      item.add = false
+      this.$forceUpdate()
     }
   }
 }
@@ -178,6 +204,7 @@ export default {
 
 <style lang="scss" scoped>
 .calendar {
+
   font-size: 0;
   width: 500px;
   .handle {
@@ -301,5 +328,21 @@ export default {
       background: #ffbf01;
     }
   }
+  .add-more {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 30px;
+    word-break: keep-all;
+    background-color: #fff;
+    .btn {
+      font-size: 12px;
+      padding: 4px 10px;
+      &:hover {
+        background-color: #e5eaff;
+      }
+    }
+  }
+  .add-box{}
 }
 </style>
