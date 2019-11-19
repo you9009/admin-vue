@@ -30,6 +30,11 @@ const state = {
           label: '城市选择器',
           link: '/page3',
           name: 'page3'
+        },
+        {
+          label: '日历',
+          link: '/page4',
+          name: 'page4'
         }
       ]
     },

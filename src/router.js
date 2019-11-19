@@ -52,6 +52,12 @@ const routerList = [
         meta: { requireAuth: user }
       },
       {
+        path: '/page4',
+        name: 'page4',
+        component: () => import('components/pages/page4'),
+        meta: { requireAuth: user }
+      },
+      {
         path: '/page/:id',
         name: 'page',
         component: () => import('components/pages/page'),
