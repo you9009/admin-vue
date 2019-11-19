@@ -1,27 +1,18 @@
 <template>
   <div class="page">
     <Card>
-      <div slot="title">{{line.type}}</div>
       <div class="echart-box"><echart-module :data="line"></echart-module></div>
     </Card>
 
     <Card class="marTop">
-      <div slot="title">{{bar.type}}</div>
       <div class="echart-box"><echart-module :data="bar"></echart-module></div>
     </Card>
 
     <Card class="marTop">
-      <div slot="title">{{barMore.type}}</div>
       <div class="echart-box"><echart-module :data="barMore"></echart-module></div>
     </Card>
 
     <Card class="marTop">
-      <div slot="title">{{radar.type}}</div>
-      <div class="echart-box"><echart-module :data="radar"></echart-module></div>
-    </Card>
-
-    <Card class="marTop">
-      <div slot="title">{{mixture.type}}</div>
       <div class="echart-box"><echart-module :data="mixture"></echart-module></div>
     </Card>
   </div>
@@ -52,20 +43,6 @@ export default {
         { key: 'Milk Tea', value: [83.1, 73.4, 55.1] },
         { key: 'Cheese Cocoa', value: [86.4, 65.2, 82.5] },
         { key: 'Cheese Brownie', value: [86.4, 73.4, 82.5] }
-      ]
-    }
-    this.radar = {
-      type: 'radar',
-      title: [
-        { name: '销售', max: 50 },
-        { name: '信息', max: 50 },
-        { name: '客服', max: 50 },
-        { name: '研发', max: 50 },
-        { name: '市场', max: 50 }
-      ],
-      data: [
-        { name: '本校', value: [43, 40, 28, 35, 50, 19] },
-        { name: '全区', value: [50, 34, 28, 31, 42, 21] }
       ]
     }
     this.mixture = {

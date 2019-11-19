@@ -155,33 +155,6 @@ export default {
       }
       return option
     },
-    // 雷达图
-    Radar () {
-      let title = this.data.title
-      let data = this.data.data
-      let legend = []
-      for (let i = 0; i < data.length; i++) {
-        const element = data[i]
-        legend.push(element.name)
-      }
-
-      let option = {
-        tooltip: {},
-        legend: {
-          data: legend
-        },
-        radar: {
-          indicator: title,
-          center: ['50%', '55%'],
-          radius: '88%'
-        },
-        series: [{
-          type: 'radar',
-          data: data
-        }]
-      }
-      return option
-    },
     // 混合折现柱状图
     Mixture () {
       let title = this.data.title
@@ -258,9 +231,6 @@ export default {
         case 'barMore':
           option = this.BarMore
           break
-        case 'radar':
-          option = this.Radar
-          break
         case 'mixture':
           option = this.Mixture
           break
@@ -288,73 +258,6 @@ export default {
       }
       if (data < 25) {
         return list[3]
-      }
-    },
-    // 以下为类型数据事例
-    demoData () {
-      this.line = {
-        type: 'line',
-        title: ['Matcha Latte', 'Milk Tea', 'Cheese Cocoa', 'Cheese Brownie'],
-        data: [100, 70, 40, 10]
-      }
-
-      this.bar = {
-        type: 'bar',
-        title: ['Matcha Latte', 'Milk Tea', 'Cheese Cocoa', 'Cheese Brownie'],
-        data: [100, 70, 40, 10]
-      }
-
-      this.barright = {
-        type: 'barright',
-        title: ['Matcha Latte', 'Milk Tea', 'Cheese Cocoa', 'Cheese Brownie'],
-        data: [100, 70, 40, 10]
-      }
-
-      this.barmore = {
-        type: 'barmore',
-        title: ['2015', '2016', '2017'],
-        data: [
-          { key: 'Matcha Latte', value: [72.4, 53.9, 39.1] },
-          { key: 'Milk Tea', value: [83.1, 73.4, 55.1] },
-          { key: 'Cheese Cocoa', value: [86.4, 65.2, 82.5] },
-          { key: 'Cheese Brownie', value: [86.4, 73.4, 82.5] }
-        ]
-      }
-
-      this.radar = {
-        type: 'radar',
-        title: [
-          { name: '销售', max: 50 },
-          { name: '信息', max: 50 },
-          { name: '客服', max: 50 },
-          { name: '研发', max: 50 },
-          { name: '市场', max: 50 }
-        ],
-        data: [
-          { name: '本校', value: [43, 40, 28, 35, 50, 19] },
-          { name: '全区', value: [50, 34, 28, 31, 42, 21] }
-        ]
-      }
-
-      this.mixture = {
-        type: 'mixture',
-        title: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        data: [
-          {
-            data: [820, 912, 934, 534, 790, 930, 1020],
-            type: 'bar',
-            name: 'box1'
-          }, {
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: 'line',
-            name: 'box2'
-          }, {
-            data: [120, 200, 150, 80, 70, 110, 130],
-            type: 'line',
-            name: 'box3'
-          }
-        ]
-
       }
     }
   }
