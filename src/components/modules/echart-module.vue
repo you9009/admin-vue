@@ -61,23 +61,6 @@ export default {
               show: true,
               position: 'top'
             }
-          },
-          itemStyle: {
-            normal: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [{
-                  offset: 0, color: '#6CCDFC' // 0% 处的颜色
-                }, {
-                  offset: 1, color: '#2397E8' // 100% 处的颜色
-                }],
-                global: false // 缺省为 false
-              }
-            }
           }
         }]
       }
@@ -124,21 +107,7 @@ export default {
             }
           },
           itemStyle: {
-            normal: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [{
-                  offset: 0, color: '#6CCDFC' // 0% 处的颜色
-                }, {
-                  offset: 1, color: '#2397E8' // 100% 处的颜色
-                }],
-                global: false // 缺省为 false
-              }
-            }
+            barBorderRadius: [8, 8, 0, 0]
           }
         }]
       }
@@ -160,6 +129,9 @@ export default {
               show: true,
               position: 'inside'
             }
+          },
+          itemStyle: {
+            barBorderRadius: [8, 8, 0, 0]
           },
           type: 'bar'
         })
@@ -228,6 +200,25 @@ export default {
       for (let i = 0; i < data.length; i++) {
         const element = data[i]
         legend.push(element.name)
+        if (element.type == 'bar') {
+          element.label = {
+            normal: {
+              show: true,
+              position: 'inside'
+            }
+          }
+          element.itemStyle = {
+            barBorderRadius: [8, 8, 0, 0]
+          }
+        }
+        if (element.type == 'line') {
+          element.label = {
+            normal: {
+              show: true,
+              position: 'top'
+            }
+          }
+        }
       }
 
       let option = {
