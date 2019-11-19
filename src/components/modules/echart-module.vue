@@ -76,9 +76,6 @@ export default {
         },
         xAxis: {
           type: 'category',
-          axisTick: {
-            alignWithLabel: true
-          },
           data: title,
           splitLine: {
             show: false
