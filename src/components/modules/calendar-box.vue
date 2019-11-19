@@ -19,14 +19,23 @@
           <div class="content">{{item.content}}</div>
         </div>
         <div class="add-more" v-if="item.add">
-          <div class="btn">添加日程</div>
+          <div class="btn" v-if="!item.more" @click="openModal(item)">添加日程</div>
+          <div class="btn" v-else @click="removeItem(item)">删除日程</div>
         </div>
       </li>
     </ul>
 
-    <div class="add-box">
-      <Input v-model="addModal.title" maxlength="10" show-word-limit placeholder="请输入标题..." />
-      <Input v-model="addModal.content" maxlength="100" show-word-limit type="textarea" placeholder="请输入内容..." />
+    <!-- 添加日程 -->
+    <div class="add-box" v-if="addModal.show">
+      <div class="box-main">
+        <div class="txt">时间：{{addModal.time}}</div>
+        <Input class="mar-top" v-model="addModal.title" maxlength="20" show-word-limit placeholder="请输入标题..." />
+        <Input class="mar-top" v-model="addModal.content" :autosize="{minRows: 4,maxRows: 10}" maxlength="100" show-word-limit type="textarea" placeholder="请输入内容..." />
+        <div class="online mar-top">
+          <Button size="small" class="mar-right" @click="closeAdd">取消</Button>
+          <Button type="primary" size="small" @click="addItem(addModal)">确定</Button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -43,6 +52,7 @@ export default {
       moment: {},
       // 添加日程
       addModal: {
+        show: false,
         title: '',
         content: ''
       }
@@ -197,6 +207,37 @@ export default {
     hideAdd (item) {
       item.add = false
       this.$forceUpdate()
+    },
+    // 打开创建事件弹窗
+    openModal (item) {
+      this.addModal = {
+        show: true,
+        title: '',
+        content: '',
+        time: this.year + '-' + this.month + '-' + item.time
+      }
+      this.hideAdd(item)
+    },
+    // 关闭弹窗
+    closeAdd () {
+      this.addModal = {
+        show: false,
+        title: '',
+        content: ''
+      }
+      this.$forceUpdate()
+    },
+    // 添加日程
+    addItem (item) {
+      delete item.show
+      this.$emit('on-add', item)
+      this.closeAdd()
+    },
+    // 删除日程
+    removeItem (item) {
+      let data = item
+      data.remove = this.year + '-' + this.month + '-' + item.time
+      this.$emit('on-remove', data)
     }
   }
 }
@@ -204,9 +245,24 @@ export default {
 
 <style lang="scss" scoped>
 .calendar {
-
+  position: relative;
   font-size: 0;
   width: 500px;
+  .txt{
+    font-size: 14px;
+  }
+  .online{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .mar-top{
+    margin-top: 20px;
+  }
+  .mar-right{
+    margin-right: 20px;
+  }
   .handle {
     position: relative;
     display: flex;
@@ -318,6 +374,8 @@ export default {
           line-height: 1.6;
           margin-top: 8px;
           color: #989898;
+          max-height: 60px;
+         overflow-y: auto;
         }
       }
     }
@@ -343,6 +401,25 @@ export default {
       }
     }
   }
-  .add-box{}
+  .add-box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,.2);
+    .box-main{
+      padding: 10px;
+      width: 300px;
+      background-color: #fff;
+      .mar-top{
+        margin-top:10px;
+      }
+    }
+  }
 }
 </style>

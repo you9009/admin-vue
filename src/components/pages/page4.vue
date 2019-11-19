@@ -1,6 +1,6 @@
 <template>
   <div class="online">
-    <calendar-box :data="list1"></calendar-box>
+    <calendar-box :data="list1" @on-add="addItem" @on-remove="removeItem"></calendar-box>
   </div>
 </template>
 
@@ -36,6 +36,25 @@ export default {
           content: '内容5内容5内容5内容5内容5内容5内容5内容5内容5内容5内容5内容5内容5'
         }
       ]
+    }
+  },
+  methods: {
+    addItem (data) {
+      let list = this.list1
+      list.push(data)
+      this.$forceUpdate()
+    },
+    removeItem (data) {
+      let len = null
+      let list = this.list1
+      for (let i = 0; i < list.length; i++) {
+        const element = list[i]
+        if (element.time == data.remove) {
+          len = i
+        }
+      }
+      this.list1.splice(len, 1)
+      this.$forceUpdate()
     }
   }
 }
