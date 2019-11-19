@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import 'echarts/theme/roma.js'
+import 'echarts/theme/macarons.js'
 export default {
   name: 'echart-module',
   props: {
@@ -27,25 +27,31 @@ export default {
       let title = this.data.title
       let data = this.data.data
       let option = {
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
         grid: {
           left: '4%',
           right: '4%',
           bottom: '4%',
-          top: '4%',
+          top: '5%',
           containLabel: true
         },
         xAxis: {
           type: 'category',
-          data: title
+          data: title,
+          axisTick: {
+            alignWithLabel: true
+          },
+          splitLine: {
+            show: false
+          }
         },
         yAxis: {
-          type: 'value'
+          type: 'value',
+          splitLine: {
+            show: false
+          },
+          splitArea: {
+            show: false
+          }
         },
         series: [{
           data: data,
@@ -54,6 +60,23 @@ export default {
             normal: {
               show: true,
               position: 'top'
+            }
+          },
+          itemStyle: {
+            normal: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                  offset: 0, color: '#6CCDFC' // 0% 处的颜色
+                }, {
+                  offset: 1, color: '#2397E8' // 100% 处的颜色
+                }],
+                global: false // 缺省为 false
+              }
             }
           }
         }]
@@ -65,12 +88,6 @@ export default {
       let title = this.data.title
       let data = this.data.data
       let option = {
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
         grid: {
           left: '4%',
           right: '4%',
@@ -80,10 +97,22 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: title
+          axisTick: {
+            alignWithLabel: true
+          },
+          data: title,
+          splitLine: {
+            show: false
+          }
         },
         yAxis: {
-          type: 'value'
+          type: 'value',
+          splitLine: {
+            show: false
+          },
+          splitArea: {
+            show: false
+          }
         },
         series: [{
           data: data,
@@ -93,89 +122,22 @@ export default {
               show: true,
               position: 'inside'
             }
-          }
-        }]
-      }
-      return option
-    },
-    // 横向柱状图
-    BarRight () {
-      let data = []
-      let key = this.data
-      for (let i = 0; i < key.data.length; i++) {
-        const element = key.data[i]
-        for (let j = 0; j < key.title.length; j++) {
-          const e = key.title[j]
-          if (i == j) {
-            data[i] = [element, e]
-          }
-        }
-      }
-      data.unshift(['amount', 'product'])
-      let option = {
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
-        dataset: {
-          source: data
-        },
-        grid: {
-          left: '4%',
-          right: '4%',
-          bottom: '4%',
-          top: '7%',
-          containLabel: true
-        },
-        xAxis: {
-          position: 'top'
-        },
-        yAxis: {
-          type: 'category'
-        },
-        visualMap: {
-          type: 'piecewise',
-          orient: 'horizontal',
-          left: 'center',
-          top: 0,
-          dimension: 0,
-          splitNumber: 4,
-          textGap: 5,
-          itemWidth: 24,
-          color: ['#4271C6', '#84CFFF', '#FFAEBD', '#FF4142'],
-          pieces: [{
-            min: 75,
-            max: 100,
-            label: '优秀'
           },
-          {
-            min: 50,
-            max: 75,
-            label: '危险'
-          },
-          {
-            min: 25,
-            max: 50,
-            label: '安全'
-          },
-          {
-            min: 0,
-            max: 25,
-            label: '警报'
-          }]
-        },
-        series: [{
-          type: 'bar',
-          encode: {
-            x: 'amount',
-            y: 'product'
-          },
-          label: {
+          itemStyle: {
             normal: {
-              show: true,
-              position: 'inside'
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [{
+                  offset: 0, color: '#6CCDFC' // 0% 处的颜色
+                }, {
+                  offset: 1, color: '#2397E8' // 100% 处的颜色
+                }],
+                global: false // 缺省为 false
+              }
             }
           }
         }]
@@ -313,9 +275,6 @@ export default {
         case 'barMore':
           option = this.BarMore
           break
-        case 'barRight':
-          option = this.BarRight
-          break
         case 'radar':
           option = this.Radar
           break
@@ -326,7 +285,7 @@ export default {
         default:
           break
       }
-      let myChart = this.Echarts.init(document.getElementById(this.echartsId), 'roma')
+      let myChart = this.Echarts.init(document.getElementById(this.echartsId), 'macarons')
       myChart.setOption(option)
 
       window.addEventListener('resize', () => {

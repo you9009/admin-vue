@@ -11,11 +11,6 @@
     </Card>
 
     <Card class="marTop">
-      <div slot="title">{{barRight.type}}</div>
-      <div class="echart-box"><echart-module :data="barRight"></echart-module></div>
-    </Card>
-
-    <Card class="marTop">
       <div slot="title">{{barMore.type}}</div>
       <div class="echart-box"><echart-module :data="barMore"></echart-module></div>
     </Card>
@@ -41,18 +36,13 @@ export default {
   created () {
     this.line = {
       type: 'line',
-      title: ['Matcha Latte', 'Milk Tea', 'Cheese Cocoa', 'Cheese Brownie'],
-      data: [100, 70, 40, 10]
+      title: ['14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+      data: [393, 438, 485, 631, 689, 824, 987, 1000, 1100, 1200]
     }
     this.bar = {
       type: 'bar',
-      title: ['Matcha Latte', 'Milk Tea', 'Cheese Cocoa', 'Cheese Brownie'],
-      data: [100, 70, 40, 10]
-    }
-    this.barRight = {
-      type: 'barRight',
-      title: ['Matcha Latte', 'Milk Tea', 'Cheese Cocoa', 'Cheese Brownie'],
-      data: [100, 70, 40, 10]
+      title: ['14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+      data: [393, 438, 485, 631, 689, 824, 987, 1000, 1100, 1200]
     }
     this.barMore = {
       type: 'barMore',
