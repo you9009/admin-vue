@@ -68,6 +68,12 @@ const routerList = [
         name: 'page5',
         component: () => import('components/pages/page5'),
         meta: { requireAuth: user }
+      },
+      {
+        path: '/page6',
+        name: 'page6',
+        component: () => import('components/pages/page6'),
+        meta: { requireAuth: user }
       }
     ]
   }
