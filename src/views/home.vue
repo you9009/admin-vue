@@ -196,9 +196,10 @@ export default {
     // tab关闭
     closeTab (data) {
       this.delPageTab(data)
-      this.HomeMenuSelect(data[data.length - 1].active)
       if (!data.length) {
         this.goHome()
+      } else {
+        this.HomeMenuSelect(data[data.length - 1].active)
       }
     },
 
