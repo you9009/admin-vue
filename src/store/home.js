@@ -40,11 +40,6 @@ const state = {
           label: '分页',
           link: '/page5',
           name: 'page5'
-        },
-        {
-          label: 'canvas学习',
-          link: '/page6',
-          name: 'page6'
         }
       ]
     },
