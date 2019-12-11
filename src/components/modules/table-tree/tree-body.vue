@@ -142,6 +142,7 @@ table {
   }
 }
 .table-tr-tooltip {
+  width: 100%;
   .tips-box {
     width: 100%;
   }

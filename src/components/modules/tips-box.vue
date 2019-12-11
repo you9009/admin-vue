@@ -62,7 +62,7 @@ export default {
     z-index: 1;
     top: 30px;
     display: none;
-    max-width: 400px;
+    width: auto;
     margin: 0 auto;
     padding: 6px 10px;
     color: #fff;

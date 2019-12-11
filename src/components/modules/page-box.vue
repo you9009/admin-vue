@@ -1,18 +1,17 @@
 <template>
   <div class="page-wrap">
-    <div class="page-item page-hover page-box" :class="{'none':page ==1 }" @click="firstPage">首页</div>
-
     <div class="page-item page-hover page-prev none" v-if="page == 1"><span></span></div>
     <div class="page-item page-hover page-prev" v-if="page > 1" @click="prevPage"><span></span></div>
 
-    <div class="page-item page-hover" v-if="prevMore">&hellip;</div>
+    <div class="page-item page-hover" v-if="prevMore" @click="firstPage">1</div>
+    <div class="page-lue" v-if="prevMore">&hellip;</div>
     <div v-for="li in sum" :key="li"  class="page-item page-hover" :class="{'active':page==li}" @click="selectPage(li)">{{li}}</div>
-    <div class="page-item page-hover" v-if="nextMore">&hellip;</div>
+    <div class="page-lue" v-if="nextMore">&hellip;</div>
+    <div class="page-item page-hover" v-if="nextMore" @click="LastPage">{{number}}</div>
 
     <div class="page-item page-hover page-next" v-if="page < number" @click="nextPage"><span></span></div>
     <div class="page-item page-hover page-next none" v-if="page == number"><span></span></div>
 
-    <div class="page-item page-hover page-box" :class="{'none':page == number}" @click="LastPage">尾页</div>
     <div class="page-options">
       <p>跳到</p>
       <input class="page-item" :value="page" type="text" @keyup.enter="jumpPage">
@@ -137,6 +136,13 @@ export default {
 
 <style lang="scss" scoped>
 .page-wrap {
+  .page-lue {
+    font-size: 14px;
+    display: inline-block;
+    margin: 0 8px;
+    vertical-align: middle;
+    color: #989898;
+  }
   .page-item {
     font-size: 14px;
     line-height: 34px;
