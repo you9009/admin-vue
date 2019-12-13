@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   outputDir: 'dist',
-  publicPath: process.env.NODE_ENV === 'production' ? '/blog' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   productionSourceMap: false,
   runtimeCompiler: true,
   assetsDir: 'assets',
