@@ -22,6 +22,14 @@ module.exports = {
         components: path.join(__dirname, 'src/components')
       }
     },
+    externals: {
+      'vue': 'Vue',
+      'vuex': 'Vuex',
+      'axios': 'Axios',
+      'vue-router': 'VueRouter',
+      'view-design': 'iview',
+      'echarts': 'Echarts'
+    },
     plugins: [
       new CompressionPlugin({
         filename: '[path].gz[query]',

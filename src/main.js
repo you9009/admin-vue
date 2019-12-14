@@ -9,7 +9,7 @@ import echarts from 'echarts'
 // 引入存储组件
 import VueCookies from 'vue-cookies'
 // 引入UI组件库
-import ViewUI from 'view-design'
+import iView from 'view-design'
 import 'view-design/dist/styles/iview.css'
 // 重置全局样式
 import 'assets/css/reset.css'
@@ -18,7 +18,7 @@ import utils from 'assets/js/utils.js'
 // 全局引用自定义模板
 import VueModule from 'assets/js/modules.js'
 
-Vue.use(ViewUI)
+Vue.use(iView)
 Vue.use(VueModule)
 
 Vue.config.productionTip = false
@@ -27,12 +27,12 @@ Vue.prototype.Echarts = echarts
 Vue.prototype.VueCookie = VueCookies
 
 router.beforeEach((to, from, next) => {
-  ViewUI.LoadingBar.start()
+  iView.LoadingBar.start()
   next()
 })
 
 router.afterEach(() => {
-  ViewUI.LoadingBar.finish()
+  iView.LoadingBar.finish()
 })
 
 new Vue({
