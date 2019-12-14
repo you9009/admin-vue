@@ -8,4 +8,3 @@ key： {
 }
 this.Utils.addPageTab(key)
 ```
-scp -r dist/* root@111.229.92.196:/usr/share/nginx/html

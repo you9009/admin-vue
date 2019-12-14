@@ -38,7 +38,7 @@ const mutations = {
     // 存储用户信息
     this._vm.VueCookie.set('USER', state.userInfo)
     // 登录跳转
-    router.push('/home')
+    router.replace('/home')
 
     let nowMsg = {
       code: 200,
