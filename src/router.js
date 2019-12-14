@@ -30,43 +30,43 @@ const routerList = [
       {
         path: '/page/:id',
         name: 'page',
-        component: () => import(/* webpackChunkName: "home-page" */'components/pages/page'),
+        component: () => import('components/pages/page'),
         meta: { requireAuth: user }
       },
       {
         path: '/page-index',
         name: 'page-index',
-        component: () => import(/* webpackChunkName: "home-index" */'components/pages/index'),
+        component: () => import('components/pages/index'),
         meta: { requireAuth: user }
       },
       {
         path: '/page1',
         name: 'page1',
-        component: () => import(/* webpackChunkName: "home-page1" */'components/pages/page1'),
+        component: () => import('components/pages/page1'),
         meta: { requireAuth: user }
       },
       {
         path: '/page2',
         name: 'page2',
-        component: () => import(/* webpackChunkName: "home-page2" */'components/pages/page2'),
+        component: () => import('components/pages/page2'),
         meta: { requireAuth: user }
       },
       {
         path: '/page3',
         name: 'page3',
-        component: () => import(/* webpackChunkName: "home-page3" */'components/pages/page3'),
+        component: () => import('components/pages/page3'),
         meta: { requireAuth: user }
       },
       {
         path: '/page4',
         name: 'page4',
-        component: () => import(/* webpackChunkName: "home-page4" */'components/pages/page4'),
+        component: () => import('components/pages/page4'),
         meta: { requireAuth: user }
       },
       {
         path: '/page5',
         name: 'page5',
-        component: () => import(/* webpackChunkName: "home-page5" */'components/pages/page5'),
+        component: () => import('components/pages/page5'),
         meta: { requireAuth: user }
       }
     ]
