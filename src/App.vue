@@ -38,14 +38,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-#app {
-  font-size: 0;
-  line-height: 1.4;
-  width: 100%;
-  min-width: 1000px;
-  height: 100%;
-  color: #2c3e50;
-}
-</style>
