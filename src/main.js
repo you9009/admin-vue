@@ -11,8 +11,6 @@ import VueCookies from 'vue-cookies'
 // 引入UI组件库
 import iView from 'view-design'
 import 'view-design/dist/styles/iview.css'
-// 重置全局样式
-import 'assets/css/reset.css'
 // 全局事件
 import utils from 'assets/js/utils.js'
 // 全局引用自定义模板
