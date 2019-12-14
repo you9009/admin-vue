@@ -1,9 +1,7 @@
 import axios from 'axios'
 import utils from './utils.js'
 
-import { baseURL } from './../../../vue.config.js'
-
-axios.defaults.baseURL = baseURL
+axios.defaults.baseURL = ''
 axios.defaults.timeout = 5000
 axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 
