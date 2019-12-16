@@ -114,6 +114,8 @@ export default {
       let key = this.VueCookie.get('HomeMenuActive')
       if (key) {
         this.HomeMenuSelect(key)
+      } else {
+        this.HomeMenuSelect(0)
       }
     },
 
@@ -121,7 +123,6 @@ export default {
     HomeMenuSelect (name) {
       let list = name.length > 1 ? name.split('-') : [name]
       let active = name.length > 1 ? name : Number(name)
-
       this.VueCookie.set('HomeMenuActive', name)
 
       let open = []

@@ -23,8 +23,6 @@ this.Utils.addPageTab(key)
     "axios": "^0.19.0",
     "core-js": "^2.6.11",
     "echarts": "^4.5.0",
-    "view-design": "^4.0.2",
-    "vue-cookies": "^1.6.0",
     "vue-router": "^3.1.3",
     "vuex": "^3.1.2"
 

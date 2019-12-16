@@ -1,15 +1,14 @@
 <template>
   <div class="wrap">
-    <h1>构成：vue2.6.10 + view-design4.0.0 + vuex3.0.1</h1>
-    <h2>1.自定义组件：</h2>
-    <h2>
-      <ul>
-        <li v-for="(item, index) in tipsList" :key="index">{{item}}</li>
-      </ul>
-    </h2>
-    <h2>2.多层嵌套导航</h2>
-    <br>
-    <br>
+    <h1>构成：vue + vue-router + vuex + axios + iview </h1>
+    <List item-layout="vertical">
+      <ListItem v-for="(item, index) in tipsList" :key="index">
+        <ListItemMeta :title="index+1+'.'+item.title"  />
+        <ul>
+          <li v-for="(li, inx) in item.children" :key="inx">{{li}}</li>
+        </ul>
+      </ListItem>
+    </List>
   </div>
 </template>
 
@@ -19,11 +18,19 @@ export default {
   data () {
     return {
       tipsList: [
-        'Tab分页切换组件：联动右侧导航',
-        '树形表格+分页：数据来自右侧导航',
-        '封装的echarts类型：百度Echarts',
-        '城市联动选择器：iview/Cascader 级联选择',
-        '日历：右键可添加删除日程'
+        {
+          title: '自定义组件：',
+          children: [
+            'Tab分页切换组件：联动右侧导航',
+            '树形表格+分页：数据来自右侧导航',
+            '封装的echarts类型：百度Echarts',
+            '城市联动选择器：iview/Cascader 级联选择',
+            '日历：右键可添加删除日程'
+          ]
+        },
+        {
+          title: '多层嵌套导航'
+        }
       ]
     }
   }
@@ -33,13 +40,12 @@ export default {
 <style lang="scss" scoped>
 .wrap {
   font-size: 14px;
-  h2 {
-    margin-top: 20px;
-  }
   ul {
     margin-left: 20px;
+    margin-top: -20px;
     li {
-      margin-bottom: 10px;
+      margin-top: 10px;
+      font-size: 14px;
     }
   }
 }
