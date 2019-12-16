@@ -31,6 +31,14 @@ module.exports = {
         minRatio: 0.8,
         deleteOriginalAssets: false
       })
-    ]
+    ],
+    externals: {
+      vue: 'Vue',
+      vuex: 'Vuex',
+      axios: 'Axios',
+      echarts: 'echarts',
+      'vue-router': 'VueRouter',
+      iview: 'iview'
+    }
   }
 }

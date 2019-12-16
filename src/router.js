@@ -1,8 +1,8 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueCookie from 'vue-cookies'
 
-Vue.use(VueRouter)
+// Vue.use(VueRouter)
 
 const user = [1, 2, 3]
 

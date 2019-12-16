@@ -203,6 +203,14 @@ const mutations = {
     if (list) {
       state.tabPageList = JSON.parse(list)
       this.dispatch('addPageTab', active)
+    } else {
+      this._vm.Utils.beginTime(() => {
+        let HomeMenuList = state.HomeMenuList
+        if (HomeMenuList.length) {
+          this._vm.Utils.overTime()
+          this.dispatch('addPageTab', HomeMenuList[0])
+        }
+      })
     }
   }
 

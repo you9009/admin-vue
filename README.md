@@ -18,3 +18,20 @@ this.Utils.addPageTab(key)
     <script src="https://cdn.bootcss.com/vue-router/3.1.3/vue-router.min.js"></script>
     <!-- import axios -->
     <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+
+    "vue": "^2.6.11",
+    "axios": "^0.19.0",
+    "core-js": "^2.6.11",
+    "echarts": "^4.5.0",
+    "view-design": "^4.0.2",
+    "vue-cookies": "^1.6.0",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.2"
+
+    externals: {
+      vue: 'Vue',
+      vuex: 'Vuex',
+      axios: 'Axios',
+      echarts: 'echarts',
+      'vue-router': 'VueRouter'
+    }

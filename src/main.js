@@ -9,8 +9,7 @@ import echarts from 'echarts'
 // 引入存储组件
 import VueCookies from 'vue-cookies'
 // 引入UI组件库
-import iView from 'view-design'
-import 'view-design/dist/styles/iview.css'
+import iView from 'iview'
 // 全局事件
 import utils from 'assets/js/utils.js'
 // 全局引用自定义模板
