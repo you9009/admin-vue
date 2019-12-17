@@ -22,7 +22,7 @@ export default {
         {
           title: '自定义组件：',
           children: [
-            'Tab分页切换组件：联动右侧导航',
+            'Tab分页切换组件：联动右侧导航(面包屑和页面之间的部分就是)',
             '树形表格：数据来自右侧导航',
             '封装的echarts类型：百度Echarts',
             '城市联动选择器：iview/Cascader 级联选择',
@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .wrap {
   font-size: 14px;
   ul {

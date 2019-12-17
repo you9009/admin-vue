@@ -1,6 +1,13 @@
 <template>
-  <div class="online">
-    <calendar-box :data="list1" @on-add="addItem" @on-remove="removeItem"></calendar-box>
+  <div class="page">
+    <div class="online">
+      <calendar-box :data="list1" @on-add="addItem" @on-remove="removeItem"></calendar-box>
+    </div>
+    <ul>
+      <li>左右切换月份</li>
+      <li>默认选中当前日期</li>
+      <li>可右键添加删除事件</li>
+    </ul>
   </div>
 </template>
 
@@ -67,5 +74,15 @@ export default {
   width: 100%;
 
   justify-content: center;
+}
+.page{
+  ul{
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    li{
+      font-size: 14px;
+    }
+  }
 }
 </style>
