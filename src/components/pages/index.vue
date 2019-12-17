@@ -1,6 +1,7 @@
 <template>
   <div class="wrap">
     <h1>构成：vue + vue-router + vuex + axios + iview </h1>
+
     <List item-layout="vertical">
       <ListItem v-for="(item, index) in tipsList" :key="index">
         <ListItemMeta :title="index+1+'.'+item.title"  />

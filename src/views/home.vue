@@ -110,7 +110,6 @@ export default {
       let list = this.VueCookie.get('TABPAGELIST')
       let active = this.VueCookie.get('MENU')
       this.getDefaultTabList({ list, active })
-
       let key = this.VueCookie.get('HomeMenuActive')
       if (key) {
         this.HomeMenuSelect(key)
@@ -184,7 +183,6 @@ export default {
         key.active = active
         this.addPageTab(key)
       }
-
       this.updatePage()
     },
 
@@ -200,7 +198,12 @@ export default {
       if (!data.length) {
         this.goHome()
       } else {
-        this.HomeMenuSelect(data[data.length - 1].active)
+        let active = this.VueCookie.get('MENU')
+        if (active) {
+          this.addTab(active)
+        } else {
+          this.HomeMenuSelect(data[data.length - 1].active)
+        }
       }
     },
 
