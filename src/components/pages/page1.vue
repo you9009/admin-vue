@@ -1,12 +1,10 @@
 <template>
   <div class="page">
-    <ul>
-      <li>展开关闭树形表格</li>
-      <li>异步加载表格项</li>
-      <li>根据需求添加展示字段</li>
-      <li>根据相关属性选择是否显示长文本</li>
-      <li>slot插槽 - 按钮事件</li>
-    </ul>
+    <h2>展开关闭树形表格</h2>
+    <h2>异步加载表格项</h2>
+    <h2>根据需求添加展示字段</h2>
+    <h2>根据相关属性选择是否显示长文本</h2>
+    <h2>slot插槽 - 按钮事件</h2>
     <table-tree :loading="loading" border :columns="columns" :data="HomeMenuList">
       <template slot-scope="{ row }" slot="action">
         <Button type="primary" size="small" @click="submit(row)">按钮</Button>

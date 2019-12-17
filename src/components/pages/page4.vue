@@ -1,13 +1,9 @@
 <template>
-  <div class="page">
-    <div class="online">
-      <calendar-box :data="list1" @on-add="addItem" @on-remove="removeItem"></calendar-box>
-    </div>
-    <ul>
-      <li>左右切换月份</li>
-      <li>默认选中当前日期</li>
-      <li>可右键添加删除事件</li>
-    </ul>
+  <div class="online">
+    <h2>默认选中当前日期</h2>
+    <h2>左右切换月份</h2>
+    <h2>可右键添加删除事件</h2>
+    <calendar-box :data="list1" @on-add="addItem" @on-remove="removeItem"></calendar-box>
   </div>
 </template>
 
@@ -69,20 +65,8 @@ export default {
 
 <style lang="scss" scoped>
 .online {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-
-  justify-content: center;
-}
-.page{
-  ul{
-    width: 400px;
-    margin: 0 auto;
-    margin-top: 20px;
-    li{
-      font-size: 14px;
-    }
-  }
+  width: 500px;
+  font-size: 14px;
+  margin: 0 auto;
 }
 </style>

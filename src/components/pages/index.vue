@@ -1,15 +1,13 @@
 <template>
   <div class="wrap">
-    <h1>构成：vue + vue-router + vuex + axios + iviewUI </h1>
-    <h2>优化：前端代码压缩 + cdn资源加速 + 服务端启用nginx压缩</h2>
-    <List item-layout="vertical">
-      <ListItem v-for="(item, index) in tipsList" :key="index">
-        <ListItemMeta :title="index+1+'.'+item.title"  />
-        <ul>
-          <li v-for="(li, inx) in item.children" :key="inx">{{li}}</li>
-        </ul>
-      </ListItem>
-    </List>
+    <div class="tips" v-for="(item, index) in tipsList" :key="index">
+      <h2>{{item.title}}</h2>
+      <div class="children">
+        <div v-for="(li, inx) in item.children" :key="inx">
+          <h3>{{li}}</h3>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,6 +17,15 @@ export default {
   data () {
     return {
       tipsList: [
+        {
+          title: '构成：vue + vue-router + vuex + axios + iviewUI'
+        },
+        {
+          title: '优化：前端代码压缩 + cdn资源加速 + 服务端启用nginx压缩'
+        },
+        {
+          title: '页面实行了缓存机制，页面内的操作可保留至下次刷新页面'
+        },
         {
           title: '自定义组件：',
           children: [
@@ -42,13 +49,14 @@ export default {
 <style lang="scss">
 .wrap {
   font-size: 14px;
-  ul {
+  h2{
+    margin-bottom: 20px;
+  }
+  h3{
+    margin-bottom: 10px;
+  }
+  .children{
     margin-left: 20px;
-    margin-top: -20px;
-    li {
-      margin-top: 10px;
-      font-size: 14px;
-    }
   }
 }
 </style>
