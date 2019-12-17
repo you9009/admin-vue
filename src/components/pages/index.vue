@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <h1>构成：vue + vue-router + vuex + axios + iview </h1>
-
+    <h2>优化：前端代码压缩 + cdn资源加速 + 服务端启用nginx压缩</h2>
     <List item-layout="vertical">
       <ListItem v-for="(item, index) in tipsList" :key="index">
         <ListItemMeta :title="index+1+'.'+item.title"  />
