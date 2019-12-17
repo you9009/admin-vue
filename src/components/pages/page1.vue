@@ -10,7 +10,7 @@
         title="内容"
         v-model="modal.show"
         :mask-closable="false">
-        {{modal.main}}
+        {{modal.main.label}}
     </Modal>
   </div>
 </template>
