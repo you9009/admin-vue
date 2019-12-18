@@ -23,6 +23,15 @@ export default {
   },
 
   addPageTab (key) {
+    for (const k in key) {
+      if (key.hasOwnProperty(k)) {
+        const element = key[k]
+        if (k === 'active') {
+          key[k] = element + '-'
+        }
+      }
+    }
     store.dispatch('addPageTab', key)
+    store.dispatch('HomeMenuSelect', key.active)
   }
 }
