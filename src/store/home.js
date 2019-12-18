@@ -101,14 +101,23 @@ const state = {
   ],
   keepList: [],
   tabPageList: [],
-  tabPageActive: null
+  tabPageActive: null,
+  // 面包屑
+  BreadcrumbList: [],
+  // 导航选中
+  HomeMenuActive: null,
+  // 导航展开
+  HomeMenuOpen: []
 }
 
 const getters = {
   HomeMenuList: state => state.HomeMenuList,
   keepList: state => state.keepList,
   tabPageList: state => state.tabPageList,
-  tabPageActive: state => state.tabPageActive
+  tabPageActive: state => state.tabPageActive,
+  BreadcrumbList: state => state.BreadcrumbList,
+  HomeMenuActive: state => state.HomeMenuActive,
+  HomeMenuOpen: state => state.HomeMenuOpen
 }
 
 const actions = {
@@ -123,6 +132,14 @@ const actions = {
   // 获取tab导航列表
   getDefaultTabList ({ commit }, key) {
     commit('getDefaultTabList', key)
+  },
+  // 跳转首页
+  goHome ({ commit }) {
+    commit('goHome')
+  },
+  // 导航选择
+  HomeMenuSelect ({ commit }, key) {
+    commit('HomeMenuSelect', key)
   }
 }
 
@@ -198,6 +215,84 @@ const mutations = {
     if (list) {
       state.tabPageList = JSON.parse(list)
       this.dispatch('addPageTab', active)
+    }
+  },
+
+  goHome (state) {
+    this._vm.VueCookie.remove('HomeMenuActive')
+
+    state.HomeMenuActive = null
+    state.HomeMenuOpen = []
+    state.BreadcrumbList = []
+
+    this.dispatch('delPageTab', [])
+
+    router.push('/home')
+  },
+
+  HomeMenuSelect (state, name) {
+    let list = name.length > 1 ? name.split('-') : [name]
+    let active = name.length > 1 ? name : Number(name)
+    this._vm.VueCookie.set('HomeMenuActive', name)
+
+    let open = []
+    open.length = list.length - 1
+    for (let i = 0; i < open.length; i++) {
+      let open1 = list[0]
+      if (open1) {
+        open[0] = Number(open1)
+        let open2 = open1 + '-' + list[1]
+        if (open2 && list[1] !== undefined) {
+          open[1] = open2
+          let open3 = open2 + '-' + list[2]
+          if (open3 && list[2] !== undefined) {
+            open[2] = open3
+            let open4 = open3 + '-' + list[3]
+            if (open4 && list[3] !== undefined) {
+              open[3] = open4
+              let open5 = open4 + '-' + list[4]
+              if (open5 && list[4] !== undefined) {
+                open[4] = open5
+              }
+            }
+          }
+        }
+      }
+    }
+
+    let bread = []
+    for (let i = 0; i < list.length; i++) {
+      let bread1 = state.HomeMenuList[list[0]]
+      if (bread1) {
+        bread[0] = bread1
+        let bread2 = bread1.children ? bread1.children[list[1]] : undefined
+        if (bread2) {
+          bread[1] = bread2
+          let bread3 = bread2.children ? bread2.children[list[2]] : undefined
+          if (bread3) {
+            bread[2] = bread3
+            let bread4 = bread3.children ? bread3.children[list[3]] : undefined
+            if (bread4) {
+              bread[3] = bread4
+              let bread5 = bread4.children ? bread4.children[list[4]] : undefined
+              if (bread5) {
+                bread[4] = bread5
+              }
+            }
+          }
+        }
+      }
+    }
+
+    state.HomeMenuActive = active
+    state.HomeMenuOpen = open
+    state.BreadcrumbList = bread
+
+    let tablen = bread.length
+    if (tablen) {
+      let key = bread[tablen - 1]
+      key.active = active
+      this.dispatch('addPageTab', key)
     }
   }
 

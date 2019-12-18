@@ -49,7 +49,7 @@ export default {
         link: '/page3',
         name: 'page3',
         label: 'page3',
-        active: 0
+        active: '100'
       }
       this.Utils.addPageTab(key)
     }

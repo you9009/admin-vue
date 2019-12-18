@@ -72,23 +72,16 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Home',
-  data () {
-    return {
-      // 面包屑
-      BreadcrumbList: [],
-      // 导航选中
-      HomeMenuActive: null,
-      // 导航展开
-      HomeMenuOpen: []
-    }
-  },
   computed: {
     ...mapGetters([
       'userInfo',
       'HomeMenuList',
       'tabPageList',
       'tabPageActive',
-      'keepList'
+      'keepList',
+      'BreadcrumbList',
+      'HomeMenuActive',
+      'HomeMenuOpen'
     ])
   },
   created () {
@@ -100,7 +93,9 @@ export default {
       'getUserInfo',
       'addPageTab',
       'delPageTab',
-      'getDefaultTabList'
+      'getDefaultTabList',
+      'goHome',
+      'HomeMenuSelect'
     ]),
     // 默认事件
     init () {
@@ -110,16 +105,12 @@ export default {
       let list = this.VueCookie.get('TABPAGELIST')
       let active = this.VueCookie.get('MENU')
       this.getDefaultTabList({ list, active })
-      let key = this.VueCookie.get('HomeMenuActive')
-      if (key) {
-        this.HomeMenuSelect(key)
-      } else {
-        this.HomeMenuSelect(0)
-      }
+      let key = this.VueCookie.get('HomeMenuActive') || 0
+      this.HomeMenuSelect(key)
     },
 
     // 导航选择
-    HomeMenuSelect (name) {
+    HomeMenuSelect111 (name) {
       let list = name.length > 1 ? name.split('-') : [name]
       let active = name.length > 1 ? name : Number(name)
       this.VueCookie.set('HomeMenuActive', name)
@@ -183,7 +174,6 @@ export default {
         key.active = active
         this.addPageTab(key)
       }
-      this.updatePage()
     },
 
     // tab切换
@@ -207,20 +197,6 @@ export default {
       }
     },
 
-    // 跳转首页
-    goHome () {
-      this.VueCookie.remove('HomeMenuActive')
-
-      this.HomeMenuActive = null
-      this.HomeMenuOpen = []
-      this.BreadcrumbList = []
-
-      this.delPageTab([])
-      this.updatePage()
-
-      this.$router.push('/home')
-    },
-
     // 退出
     Exit () {
       this.goHome()
@@ -237,6 +213,9 @@ export default {
         })
       }
     }
+  },
+  watch: {
+    HomeMenuActive: 'updatePage'
   }
 }
 </script>
