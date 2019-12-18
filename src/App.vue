@@ -1,6 +1,6 @@
 <template>
   <div id="app" :style="{minWidth:Wid}">
-    <router-view v-if="webPC" />
+    <router-view v-if="!webPC" />
     <div class="tips" v-else>
       <p>当前页面为后台管理品台</p>
       <p>请使用电脑登录浏览</p>
@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 .tips {
-  font-size: 14vw;
+  font-size: 12vw;
   text-align: center;
 }
 </style>
