@@ -95,6 +95,12 @@ const state = {
               name: 'page'
             }
           ]
+        },
+        {
+          icon: 'ios-basketball',
+          label: '新增',
+          link: '/page/10',
+          name: 'page'
         }
       ]
     }
