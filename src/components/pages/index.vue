@@ -9,7 +9,7 @@
       </div>
     </div>
     <h2>其他</h2>
-    <Button @click="goPage">新建页面（组件管理目录下）</Button>
+    <Button type="primary" @click="goPage">新建页面（组件管理目录下）</Button>
   </div>
 </template>
 
@@ -49,7 +49,7 @@ export default {
       let key = {
         link: '/page3',
         name: 'page3',
-        label: 'page3',
+        label: '卡片组件',
         active: '1'
       }
       this.Utils.addPageTab(key)
