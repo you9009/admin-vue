@@ -215,7 +215,7 @@ export default {
       .label-name {
         font-size: 14px;
         overflow: hidden;
-        max-width: 200px;
+        max-width: 160px;
         margin-right: 5px;
         white-space: nowrap;
         word-spacing: nowrap;

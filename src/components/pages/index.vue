@@ -24,8 +24,8 @@ export default {
           title: '说明',
           children: [
             '构成：vue + vue-router + vuex + axios + iviewUI',
-            '优化：前端代码压缩 + CDN资源加速 + 服务端启用Nginx压缩',
-            '页面实行了缓存机制，页面内的操作可保留至下次刷新页面'
+            '优化：前端代码压缩 + CDN资源加速 + 服务端启用Nginx压缩(1核 2GB 1Mbps 从15秒上下减到2秒上下)',
+            '页面实行了缓存机制，页面内的操作可保留至下次页面刷新'
           ]
         },
         {
