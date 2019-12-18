@@ -1,7 +1,9 @@
 <template>
   <div class="wrap">
-    <select-city v-model="value"></select-city>
-    <div class="name">{{value}}</div>
+    <card-wrap dis-hover>
+      <!-- <div slot="title">123</div> -->
+      <p>456</p>
+    </card-wrap>
   </div>
 </template>
 
@@ -10,14 +12,13 @@ export default {
   name: 'page3',
   data () {
     return {
-      value: [ '上海', '市辖区', '普陀区' ]
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.name{
+.wrap {
   font-size: 14px;
 }
 </style>

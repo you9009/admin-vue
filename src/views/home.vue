@@ -246,7 +246,6 @@ export default {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-width: 1200px;
   height: 100%;
   border: 1px solid #d7dde4;
   background: #f5f7f9;

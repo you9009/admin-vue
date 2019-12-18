@@ -8,6 +8,7 @@
         </div>
       </div>
     </div>
+    <button @click="goPage">page3</button>
   </div>
 </template>
 
@@ -40,6 +41,17 @@ export default {
           title: '多层嵌套导航'
         }
       ]
+    }
+  },
+  methods: {
+    goPage () {
+      let key = {
+        link: '/page3',
+        name: 'page3',
+        label: 'page3',
+        active: 0
+      }
+      this.Utils.addPageTab(key)
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="login-box">
-    <Card class="card">
-      <p class="title" slot="title"><img src="./../assets/img/logo-small.png" alt="">管理平台</p>
+    <card-wrap class="card">
+      <div class="title" slot="title"><img src="./../assets/img/logo-small.png" alt="">管理平台</div>
       <Form class="form" ref="formInline" :model="formInline" :rules="ruleInline">
         <FormItem prop="user">
           <Input type="text" size="large" v-model="formInline.user" placeholder="请填写用户名">
@@ -17,8 +17,7 @@
           <Button class="btn" type="primary" long @click="handleSubmit('formInline')">登录</Button>
         </FormItem>
       </Form>
-
-    </Card>
+    </card-wrap>
   </div>
 </template>
 
@@ -84,7 +83,6 @@ export default {
     font-size: 20px;
     display: flex;
     flex-direction: row;
-    padding: 20px 0;
 
     align-items: center;
     justify-content: center;
