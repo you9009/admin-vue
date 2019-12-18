@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="tips" v-for="(item, index) in tipsList" :key="index">
-      <h2>{{item.title}}</h2>
+      <h2>{{item.title}}：</h2>
       <div class="children">
         <div v-for="(li, inx) in item.children" :key="inx">
           <h3>{{li}}</h3>
@@ -29,7 +29,7 @@ export default {
           ]
         },
         {
-          title: '自定义组件：',
+          title: '自定义组件',
           children: [
             '分页切换组件：联动右侧导航(面包屑和页面之间的部分就是)',
             '树形表格组件：数据来自右侧导航',
