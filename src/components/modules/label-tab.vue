@@ -230,6 +230,7 @@ export default {
       left: 0;
       width: 100%;
       padding: 10px;
+      border-radius: 2px;
       background-color: #fff;
       box-shadow: 0 1px 6px rgba(0,0,0,.2);
 

@@ -49,7 +49,7 @@ export default {
       let key = {
         link: '/page3',
         name: 'page3',
-        label: '卡片组件',
+        label: '卡片组件(名字很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长)',
         active: '1'
       }
       this.Utils.addPageTab(key)
@@ -68,8 +68,8 @@ export default {
     margin-top: 10px;
   }
   .children {
-    margin-left: 20px;
     margin-bottom: 30px;
+    margin-left: 20px;
   }
 }
 </style>
