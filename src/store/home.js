@@ -17,22 +17,22 @@ const state = {
       dec: '文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字',
       children: [
         {
-          label: '树形表格',
+          label: '树形表格组件',
           link: '/page1',
           name: 'page1'
         },
         {
-          label: '自定义Echarts类型',
+          label: 'Echarts组件',
           link: '/page2',
           name: 'page2'
         },
         {
-          label: '日历',
+          label: '日历组件',
           link: '/page4',
           name: 'page4'
         },
         {
-          label: '分页',
+          label: '分页组件',
           link: '/page5',
           name: 'page5'
         }
