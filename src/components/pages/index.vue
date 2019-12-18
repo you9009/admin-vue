@@ -2,11 +2,9 @@
   <div class="wrap">
     <div class="tips" v-for="(item, index) in tipsList" :key="index">
       <h2>{{item.title}}：</h2>
-      <div class="children">
-        <div v-for="(li, inx) in item.children" :key="inx">
-          <h3>{{li}}</h3>
-        </div>
-      </div>
+      <ul class="children">
+        <li  v-for="(li, inx) in item.children" :key="inx">{{li}}</li>
+      </ul>
     </div>
      <Divider />
     <h2>其他</h2>
@@ -65,12 +63,16 @@ export default {
   h2 {
     margin-bottom: 15px;
   }
-  h3 {
-    margin-top: 10px;
-  }
   .children {
     margin-bottom: 30px;
     margin-left: 20px;
+    li {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-left: 20px;
+      list-style-type: initial;
+    }
   }
 }
 </style>
