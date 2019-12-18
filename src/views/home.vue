@@ -132,9 +132,9 @@ export default {
 
     // 退出
     Exit () {
-      this.goHome()
-      this.closeTab([])
       this.exit()
+      this.closeTab([])
+      this.goHome()
     },
 
     // 刷新页面
