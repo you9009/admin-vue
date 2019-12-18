@@ -1,8 +1,9 @@
 <template>
   <div class="online">
-    <h2>默认选中当前日期</h2>
-    <h2>左右切换月份</h2>
-    <h2>可右键添加删除事件</h2>
+    <ul>
+      <li v-for="(item, index) in tipsList" :key="index">{{item}}</li>
+    </ul>
+    <divider-line></divider-line>
     <calendar-box :data="list1" @on-add="addItem" @on-remove="removeItem"></calendar-box>
   </div>
 </template>
@@ -38,6 +39,11 @@ export default {
           title: '标题5',
           content: '内容5内容5内容5内容5内容5内容5内容5内容5内容5内容5内容5内容5内容5'
         }
+      ],
+      tipsList: [
+        '默认选中当前日期',
+        '左右切换月份',
+        '可右键添加删除事件'
       ]
     }
   },
@@ -65,8 +71,8 @@ export default {
 
 <style lang="scss" scoped>
 .online {
-  width: 500px;
   font-size: 14px;
+  width: 500px;
   margin: 0 auto;
 }
 </style>

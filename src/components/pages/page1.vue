@@ -1,10 +1,8 @@
 <template>
   <div class="page">
-    <h2>展开关闭树形表格</h2>
-    <h2>异步加载表格项</h2>
-    <h2>根据需求添加展示字段</h2>
-    <h2>根据相关属性选择是否显示长文本</h2>
-    <h2>slot插槽 - 按钮事件</h2>
+    <ul>
+      <li v-for="(item, index) in tipsList" :key="index">{{item}}</li>
+    </ul>
     <table-tree :loading="loading" border :columns="columns" :data="HomeMenuList">
       <template slot-scope="{ row }" slot="action">
         <Button type="primary" size="small" @click="submit(row)">按钮</Button>
@@ -52,7 +50,14 @@ export default {
       modal: {
         show: false,
         main: {}
-      }
+      },
+      tipsList: [
+        '展开关闭树形表格',
+        '异步加载表格项',
+        '根据需求添加展示字段',
+        '根据相关属性选择是否显示长文本',
+        'slot插槽 - 按钮事件'
+      ]
     }
   },
   computed: {

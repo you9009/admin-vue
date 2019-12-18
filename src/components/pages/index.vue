@@ -8,8 +8,9 @@
         </div>
       </div>
     </div>
+     <Divider />
     <h2>其他</h2>
-    <Button type="primary" @click="goPage">新建页面（组件管理目录下）</Button>
+    <Button type="primary" @click="goPage">新建页面（自定义组件 / 组件管理目录下）</Button>
   </div>
 </template>
 
@@ -20,22 +21,21 @@ export default {
     return {
       tipsList: [
         {
-          title: '构成：vue + vue-router + vuex + axios + iviewUI'
-        },
-        {
-          title: '优化：前端代码压缩 + cdn资源加速 + 服务端启用nginx压缩'
-        },
-        {
-          title: '页面实行了缓存机制，页面内的操作可保留至下次刷新页面'
+          title: '说明',
+          children: [
+            '构成：vue + vue-router + vuex + axios + iviewUI',
+            '优化：前端代码压缩 + CDN资源加速 + 服务端启用Nginx压缩',
+            '页面实行了缓存机制，页面内的操作可保留至下次刷新页面'
+          ]
         },
         {
           title: '自定义组件：',
           children: [
-            'Tab分页切换组件：联动右侧导航(面包屑和页面之间的部分就是)',
-            '树形表格：数据来自右侧导航',
-            '封装的echarts类型：百度Echarts',
-            '日历：右键可添加删除日程',
-            '分页：简单的分页组件'
+            '分页切换组件：联动右侧导航(面包屑和页面之间的部分就是)',
+            '树形表格组件：数据来自右侧导航',
+            'Echarts组件：百度Echarts',
+            '日历组件：右键可添加删除日程',
+            '分页组件：简单的分页组件'
           ]
         },
         {
@@ -62,13 +62,14 @@ export default {
 .wrap {
   font-size: 14px;
   h2 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   h3 {
-    margin-bottom: 10px;
+    margin-top: 10px;
   }
   .children {
     margin-left: 20px;
+    margin-bottom: 30px;
   }
 }
 </style>
