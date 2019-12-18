@@ -1,5 +1,5 @@
 <template>
-  <div class="online">
+  <div class="page">
     <ul>
       <li v-for="(item, index) in tipsList" :key="index">{{item}}</li>
     </ul>
@@ -70,9 +70,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.online {
+.page {
   font-size: 14px;
   width: 500px;
   margin: 0 auto;
+  ul {
+    li {
+      margin-left: 20px;
+      list-style-type: initial;
+    }
+  }
 }
 </style>

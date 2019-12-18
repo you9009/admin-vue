@@ -77,10 +77,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page{
+.page {
   font-size: 14px;
-  ul{
+  ul {
     margin-bottom: 20px;
+    li {
+      margin-left: 20px;
+      list-style-type: initial;
+    }
   }
 }
 </style>
