@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{minWidth:Wid}">
     <router-view v-if="webPC" />
     <div class="tips" v-else>
       <p>当前页面为后台管理品台</p>
@@ -16,7 +16,16 @@ export default {
     ...mapGetters([
       'alertMessage',
       'webPC'
-    ])
+    ]),
+    Wid () {
+      let wid = '1100px'
+      if (this.webPC) {
+        wid = '1100px'
+      } else {
+        wid = '100vw'
+      }
+      return wid
+    }
   },
   mounted () {
     this.judge()
@@ -52,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tips{
+.tips {
   font-size: 14vw;
   text-align: center;
 }
