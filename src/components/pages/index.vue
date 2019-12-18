@@ -8,7 +8,8 @@
         </div>
       </div>
     </div>
-    <button @click="goPage">page3</button>
+    <h2>其他</h2>
+    <Button @click="goPage">新建页面（组件管理目录下）</Button>
   </div>
 </template>
 
