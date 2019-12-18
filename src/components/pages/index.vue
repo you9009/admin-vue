@@ -32,7 +32,6 @@ export default {
             'Tab分页切换组件：联动右侧导航(面包屑和页面之间的部分就是)',
             '树形表格：数据来自右侧导航',
             '封装的echarts类型：百度Echarts',
-            '城市联动选择器：iview/Cascader 级联选择',
             '日历：右键可添加删除日程',
             '分页：简单的分页组件'
           ]
@@ -49,13 +48,13 @@ export default {
 <style lang="scss">
 .wrap {
   font-size: 14px;
-  h2{
+  h2 {
     margin-bottom: 20px;
   }
-  h3{
+  h3 {
     margin-bottom: 10px;
   }
-  .children{
+  .children {
     margin-left: 20px;
   }
 }
