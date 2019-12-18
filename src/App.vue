@@ -1,19 +1,31 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view v-if="webPC" />
+    <div class="tips" v-else>
+      <p>当前页面为后台管理品台</p>
+      <p>请使用电脑登录浏览</p>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'App',
   computed: {
     ...mapGetters([
-      'alertMessage'
+      'alertMessage',
+      'webPC'
     ])
   },
+  mounted () {
+    this.judge()
+    window.addEventListener('resize', this.judge)
+  },
   methods: {
+    ...mapActions([
+      'judge'
+    ]),
     changeMsg (val) {
       if (val.code) {
         if (val.code === 200) {
@@ -38,3 +50,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.tips{
+  font-size: 14vw;
+  text-align: center;
+}
+</style>

@@ -2,16 +2,23 @@
 import router from 'src/router'
 
 const state = {
+  webPC: false,
   // 用户信息
   userInfo: {}
 }
 
 const getters = {
+  webPC: state => state.webPC,
   // 用户信息
   userInfo: state => state.userInfo
 }
 
 const actions = {
+  // 判断是不是移动端
+  judge ({ commit }) {
+    commit('judge')
+  },
+
   // 登录
   login ({ commit }, key) {
     commit('login', key)
@@ -29,6 +36,29 @@ const actions = {
 }
 
 const mutations = {
+  // 判断页面是否是移动端
+  judge (state) {
+    let userAgentInfo = navigator.userAgent
+    let Agents = [
+      'Firefox',
+      'Chrome',
+      'Safari',
+      'Opera'
+    ]
+    let isBool = false
+    for (const key in Agents) {
+      if (Agents.hasOwnProperty(key)) {
+        const element = Agents[key]
+        if (userAgentInfo.indexOf(element) > 0) {
+          isBool = true
+          break
+        }
+      }
+    }
+
+    state.webPC = isBool
+  },
+
   // 登录
   login (state, key) {
     state.userInfo = {
