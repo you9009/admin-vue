@@ -32,7 +32,7 @@ const mutations = {
   // 登录
   login (state, key) {
     state.userInfo = {
-      name: '小明',
+      name: '管理员',
       user_id: 1
     }
     // 存储用户信息
