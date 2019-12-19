@@ -43,10 +43,7 @@
     <Layout class="Layout">
       <Header class="Header" ref="HomeHeader">
         <div class="Header-box">
-          <Breadcrumb>
-            <BreadcrumbItem><Icon type="md-home" size="18" style="margin-right:6px"></Icon>Home</BreadcrumbItem>
-            <BreadcrumbItem v-for="(item, index) in BreadcrumbList" :key="index">{{item.label}}</BreadcrumbItem>
-          </Breadcrumb>
+          <breadcrumb-wrap :data="BreadcrumbList"></breadcrumb-wrap>
           <Poptip placement="bottom">
             <div class="Badge"><Avatar shape="square" icon="ios-person" /><span class="name">{{userInfo.name}}</span></div>
             <ul slot="content" class="user-handle">

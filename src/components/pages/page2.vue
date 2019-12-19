@@ -1,20 +1,20 @@
 <template>
   <div class="page">
-    <Card>
+    <card-wrap>
       <div class="echart-box"><echart-module :data="line"></echart-module></div>
-    </Card>
+    </card-wrap>
 
-    <Card class="marTop">
+    <card-wrap class="marTop">
       <div class="echart-box"><echart-module :data="bar"></echart-module></div>
-    </Card>
+    </card-wrap>
 
-    <Card class="marTop">
+    <card-wrap class="marTop">
       <div class="echart-box"><echart-module :data="barMore"></echart-module></div>
-    </Card>
+    </card-wrap>
 
-    <Card class="marTop">
+    <card-wrap class="marTop">
       <div class="echart-box"><echart-module :data="mixture"></echart-module></div>
-    </Card>
+    </card-wrap>
   </div>
 </template>
 <script>
@@ -76,5 +76,8 @@ export default {
 .echart-box {
   width: 100%;
   height: 500px;
+}
+.marTop{
+  margin-top: 20px;
 }
 </style>
