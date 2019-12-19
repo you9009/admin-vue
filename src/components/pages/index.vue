@@ -1,6 +1,9 @@
 <template>
   <div class="wrap">
-    <div class="tips" v-for="(item, index) in tipsList" :key="index">
+    <div class="tips">
+      <h2>除左侧主导航和图标外，其他内容均未使用iviewUI组件库</h2>
+    </div>
+    <div v-for="(item, index) in tipsList" :key="index">
       <h2>{{item.title}}：</h2>
       <ul class="children">
         <li  v-for="(li, inx) in item.children" :key="inx">{{li}}</li>
@@ -60,6 +63,9 @@ export default {
 <style lang="scss">
 .wrap {
   font-size: 14px;
+  .tips {
+    color: #f90;
+  }
   h2 {
     margin-bottom: 15px;
   }

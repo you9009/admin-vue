@@ -4,7 +4,7 @@
       <li v-for="(item, index) in tipsList" :key="index">{{item}}</li>
     </ul>
     <divider-line></divider-line>
-    <calendar-box :data="list1" @on-add="addItem" @on-remove="removeItem"></calendar-box>
+    <calendar-wrap :data="list1" @on-add="addItem" @on-remove="removeItem"></calendar-wrap>
   </div>
 </template>
 

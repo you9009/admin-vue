@@ -19,8 +19,8 @@
           <div class="content">{{item.content}}</div>
         </div>
         <div class="add-more" v-if="item.add">
-          <div class="btn" v-if="!item.more" @click="openModal(item)">添加日程</div>
-          <div class="btn" v-else @click="removeItem(item)">删除日程</div>
+          <div class="btn blue" v-if="!item.more" @click="openModal(item)">添加日程</div>
+          <div class="btn red" v-else @click="removeItem(item)">删除日程</div>
         </div>
       </li>
     </ul>
@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'calendar-box',
+  name: 'calendar-wrap',
   data () {
     return {
       weekTitle: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -245,22 +245,23 @@ export default {
 
 <style lang="scss" scoped>
 .calendar {
-  position: relative;
   font-size: 0;
+  position: relative;
   width: 500px;
-  .txt{
+  .txt {
     font-size: 14px;
   }
-  .online{
+  .online {
     display: flex;
     flex-direction: row;
+
     align-items: center;
     justify-content: center;
   }
-  .mar-top{
+  .mar-top {
     margin-top: 20px;
   }
-  .mar-right{
+  .mar-right {
     margin-right: 20px;
   }
   .handle {
@@ -372,10 +373,10 @@ export default {
         .content {
           font-size: 12px;
           line-height: 1.6;
+          overflow-y: auto;
+          max-height: 60px;
           margin-top: 8px;
           color: #989898;
-          max-height: 60px;
-         overflow-y: auto;
         }
       }
     }
@@ -396,28 +397,36 @@ export default {
     .btn {
       font-size: 12px;
       padding: 4px 10px;
-      &:hover {
-        background-color: #e5eaff;
-      }
+      border-radius: 2px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    }
+    .blue {
+      color: #fff;
+      background-color: #2d8cf0;
+    }
+    .red {
+      color: #fff;
+      background-color: #ed4014;
     }
   }
-  .add-box{
-    width: 100%;
-    height: 100%;
+  .add-box {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.2);
+
     align-items: center;
     justify-content: center;
-    background-color: rgba(0,0,0,.2);
-    .box-main{
-      padding: 10px;
+    .box-main {
       width: 300px;
+      padding: 10px;
       background-color: #fff;
-      .mar-top{
-        margin-top:10px;
+      .mar-top {
+        margin-top: 10px;
       }
     }
   }
