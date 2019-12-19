@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrap">
-    <div class="page-item page-hover page-box" :class="{'none':page ==1 }" @click="firstPage">首页</div>
+    <div class="page-item page-hover page-box" :class="{'none':page ==1 }" @click="selectPage(1)">首页</div>
 
     <div class="page-item page-hover page-prev none" v-if="page == 1"><span></span></div>
     <div class="page-item page-hover page-prev" v-if="page > 1" @click="prevPage"><span></span></div>
@@ -12,7 +12,7 @@
     <div class="page-item page-hover page-next" v-if="page < number" @click="nextPage"><span></span></div>
     <div class="page-item page-hover page-next none" v-if="page == number"><span></span></div>
 
-    <div class="page-item page-hover page-box" :class="{'none':page == number}" @click="LastPage">尾页</div>
+    <div class="page-item page-hover page-box" :class="{'none':page == number}" @click="selectPage(number)">尾页</div>
     <div class="page-options">
       <p>跳到</p>
       <input class="page-item" :value="page" type="text" @keyup.enter="jumpPage">
@@ -41,9 +41,8 @@ export default {
   created () {
     let len = parseFloat(this.total) / 10
     this.number = Math.ceil(len)
-    if (this.number > this.max) {
-      this.nextMore = true
-    }
+    this.selectPage(1)
+    this.changeLue(1)
   },
   computed: {
     sum () {
@@ -90,47 +89,35 @@ export default {
         this.selectPage(now)
       }
     },
-    // 首页
-    firstPage () {
-      this.selectPage(1)
-      if (this.number > this.max) {
-        this.prevMore = false
-        this.nextMore = true
-      }
-    },
-    // 尾页
-    LastPage () {
-      this.selectPage(this.number)
-      if (this.number > this.max) {
-        this.prevMore = true
-        this.nextMore = false
-      }
-    },
     // 上一个
     prevPage () {
       this.page--
       this.selectPage(this.page)
-      if (this.page + 1 == this.number) {
-        this.nextMore = false
-      } else {
-        this.nextMore = true
-      }
-      if (this.page + 1 == this.max) {
-        this.prevMore = false
-      }
     },
     // 下一个
     nextPage () {
       this.page++
       this.selectPage(this.page)
-      if (this.page <= this.max) {
-        this.nextMore = true
-        this.prevMore = true
-      }
-      if (this.page + 1 == this.number) {
-        this.nextMore = false
+    },
+    changeLue (val) {
+      let max = this.max
+      let number = this.number
+      if (val) {
+        if (val >= max) {
+          this.prevMore = true
+        } else {
+          this.prevMore = false
+        }
+        if (val < number - 1) {
+          this.nextMore = true
+        } else {
+          this.nextMore = false
+        }
       }
     }
+  },
+  watch: {
+    page: 'changeLue'
   }
 }
 </script>
