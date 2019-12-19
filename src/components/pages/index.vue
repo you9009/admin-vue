@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="tips">
-      <h2>除左侧主导航和图标外，其他内容均未使用iviewUI组件库</h2>
+      <h2>除左侧主导航，图标，按钮外，其他内容均未使用iviewUI组件库</h2>
     </div>
     <div v-for="(item, index) in tipsList" :key="index">
       <h2>{{item.title}}：</h2>
