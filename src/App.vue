@@ -2,8 +2,8 @@
   <div id="app" :style="{minWidth:Wid}">
     <router-view v-if="webPC" />
     <div class="tips" v-else>
-      <p>当前页面为后台管理品台</p>
-      <p>请使用电脑浏览</p>
+      <p>当前页面为后台管理平台</p>
+      <p>请使用PC端浏览器</p>
     </div>
   </div>
 </template>
