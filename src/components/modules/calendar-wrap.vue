@@ -16,7 +16,7 @@
         <p>{{item.time}}</p>
         <div class="main" v-if="item.more">
           <div class="title">{{item.title}}</div>
-          <div class="content">{{item.content}}</div>
+          <div class="content" :class="{'content-top':item.content&&item.title}">{{item.content}}</div>
         </div>
         <div class="add-more" v-if="item.add">
           <div class="btn blue" v-if="!item.more" @click="openModal(item)">添加日程</div>
@@ -375,8 +375,10 @@ export default {
           line-height: 1.6;
           overflow-y: auto;
           max-height: 60px;
-          margin-top: 8px;
           color: #989898;
+        }
+        .content-top {
+          margin-top: 8px;
         }
       }
     }

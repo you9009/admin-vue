@@ -64,7 +64,7 @@ export default {
 .wrap {
   font-size: 14px;
   .tips {
-    color: #f90;
+    color: #2d8cf0;
   }
   h2 {
     margin-bottom: 15px;
