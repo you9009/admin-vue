@@ -22,11 +22,6 @@ const state = {
           name: 'page1'
         },
         {
-          label: 'Echarts组件',
-          link: '/page2',
-          name: 'page2'
-        },
-        {
           label: '日历组件',
           link: '/page4',
           name: 'page4'
@@ -35,6 +30,11 @@ const state = {
           label: '分页组件',
           link: '/page5',
           name: 'page5'
+        },
+        {
+          label: 'Echarts组件',
+          link: '/page2',
+          name: 'page2'
         }
       ]
     },

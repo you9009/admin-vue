@@ -9,7 +9,7 @@ module.exports = {
   assetsDir: 'assets',
   devServer: {
     host: 'localhost',
-    port: 2222,
+    port: 2223,
     open: true
   },
   configureWebpack: {

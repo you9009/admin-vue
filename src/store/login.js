@@ -74,6 +74,7 @@ const mutations = {
       code: 200,
       info: '登录成功'
     }
+    this.dispatch('goHome')
     this.dispatch('showMessage', nowMsg)
   },
 
