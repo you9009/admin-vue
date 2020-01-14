@@ -1,4 +1,5 @@
 # vue-admin
+
 ```
 let key = {
   link: '链接',
@@ -8,6 +9,7 @@ let key = {
 }
 this.Utils.addPageTab(key)
 ```
+
   <!-- import stylesheet -->
   <link rel="stylesheet" href="//unpkg.com/view-design/dist/styles/iview.css">
   <!-- import echarts -->
@@ -23,11 +25,15 @@ this.Utils.addPageTab(key)
   <!-- import iView -->
   <script src="//unpkg.com/view-design/dist/iview.min.js"></script>
 
-  externals: {
-    vue: 'Vue',
-    vuex: 'Vuex',
-    axios: 'Axios',
-    echarts: 'echarts',
-    'vue-router': 'VueRouter',
-    iview: 'iview'
-  }
+externals: {
+vue: 'Vue',
+vuex: 'Vuex',
+axios: 'Axios',
+
+<!-- echarts: 'echarts', -->
+
+'vue-router': 'VueRouter',
+
+<!-- iview: 'iview' -->
+
+}
