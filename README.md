@@ -1,4 +1,4 @@
-# vue-admin
+# admin-vue
 
 ```js
 let key = {
